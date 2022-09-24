@@ -1,10 +1,16 @@
+@media screen and (max-width: 479px) {
+  .clients-link {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .clients-list {
   display: flex;
   align-items: center;
-}
-
-.clients-link:not(:last-child) {
-  margin-right: 30px;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .clients-box {
@@ -14,7 +20,7 @@
 
   border: 1px solid #afb1b8;
   border-radius: 4px;
-  width: 170px;
+  width: 210px;
   height: 92px;
   color: #afb1b8;
 
@@ -29,4 +35,10 @@
 
 .clients-icons {
   fill: currentColor;
+}
+
+@media screen and (min-width: 1200px) {
+  .clients-box {
+    width: 170px;
+  }
 }
