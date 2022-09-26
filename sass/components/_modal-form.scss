@@ -53,12 +53,12 @@
 }
 
 .contact-form-label {
-  margin-bottom: 4px;
   font-weight: 400;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 1.17;
   letter-spacing: 0.01em;
   color: var(--secondary-color);
+  margin-bottom: 4px;
 }
 
 .contact-form-message {
@@ -106,19 +106,29 @@
 
 .form-check-label {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 1.17;
   letter-spacing: 0.03em;
   color: var(--secondary-color);
+
+  @media screen and (min-width: 1200px) {
+    font-size: 14px;
+    line-height: 1.71;
+  }
 }
 
 .form-check-label-text {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 1.17;
   letter-spacing: 0.03em;
   color: var(--accent-color);
   text-decoration-line: underline;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 14px;
+    line-height: 1.71;
+  }
 }
 
 .form-own-checkbox {
@@ -141,7 +151,7 @@
 }
 
 .contact-form-button {
-  text-align: center;
+ text-align: center;
 }
 
 .contact-form-button-submit {

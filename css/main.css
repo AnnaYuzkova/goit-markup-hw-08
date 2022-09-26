@@ -136,6 +136,8 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
   transition: opacity var(--transition-dur-and-funk), visibility var(--transition-dur-and-funk);
+  padding: 93px 15px;
+  overflow-y: scroll;
 }
 
 .backdrop.is-hidden {
@@ -148,17 +150,27 @@ body {
 }
 
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 450px;
-  height: 609px;
+  position: relative;
   background-color: var(--secondary-background-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 40px;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform var(--transition-dur-and-funk);
+}
+@media screen and (min-width: 480px) {
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 450px;
+    width: 100%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .modal {
+    min-width: 528px;
+    min-height: 581px;
+  }
 }
 
 .modal-button-close {
@@ -180,12 +192,6 @@ body {
   fill: var(--accent-color);
 }
 
-@media screen and (min-width: 1200px) {
-  .modal {
-    min-width: 528px;
-    min-height: 581px;
-  }
-}
 .modal-title {
   font-weight: 700;
   font-size: 20px;
@@ -236,12 +242,12 @@ body {
 }
 
 .contact-form-label {
-  margin-bottom: 4px;
   font-weight: 400;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 1.17;
   letter-spacing: 0.01em;
   color: var(--secondary-color);
+  margin-bottom: 4px;
 }
 
 .contact-form-message {
@@ -287,19 +293,31 @@ body {
 
 .form-check-label {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 1.17;
   letter-spacing: 0.03em;
   color: var(--secondary-color);
+}
+@media screen and (min-width: 1200px) {
+  .form-check-label {
+    font-size: 14px;
+    line-height: 1.71;
+  }
 }
 
 .form-check-label-text {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 1.17;
   letter-spacing: 0.03em;
   color: var(--accent-color);
   text-decoration-line: underline;
+}
+@media screen and (min-width: 1200px) {
+  .form-check-label-text {
+    font-size: 14px;
+    line-height: 1.71;
+  }
 }
 
 .form-own-checkbox {
@@ -346,7 +364,6 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
     background-color: var(--primary-background-color);
     z-index: 100;
     opacity: 0;
@@ -361,6 +378,9 @@ body {
   }
   .mobile-menu__container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     padding-left: 40px;
     padding-top: 48px;
     padding-bottom: 48px;
@@ -378,7 +398,7 @@ body {
     fill: var(--accent-color);
   }
   .mobile-menu__nav {
-    margin-bottom: 302px;
+    margin-bottom: auto;
   }
   .mobile-menu__item:not(:last-child) {
     margin-bottom: 32px;
@@ -412,6 +432,7 @@ body {
   }
   .mobile-menu__social {
     display: flex;
+    flex-wrap: wrap;
     position: relative;
   }
   .mobile-menu__social-item:not(:last-child) {
@@ -1021,13 +1042,16 @@ body {
   }
 }
 .portfolio-filters {
+  margin-bottom: 40px;
+}
+
+.portfolio-filters__content {
   display: flex;
-  justify-content: center;
-  margin-bottom: 46px;
 }
 
 .portfolio-filters__item:not(:last-child) {
   margin-right: 8px;
+  margin-bottom: 15px;
 }
 
 .portfolio-filters__buttons {
@@ -1053,12 +1077,10 @@ body {
   gap: 30px;
 }
 
-.portfolio-list__item {
-  flex-basis: calc((100% - 60px) / 3);
-}
-
 .portfolio-list__link {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   transition: box-shadow var(--transition-dur-and-funk);
 }
 .portfolio-list__link:hover, .portfolio-list__link:focus {
@@ -1092,9 +1114,10 @@ body {
 
 .portfolio-list__content {
   padding: 20px 24px;
-  border-left: 1px solid #eeeeee;
-  border-right: 1px solid #eeeeee;
-  border-bottom: 1px solid #eeeeee;
+  border: 1px solid #eeeeee;
+  border-top: none;
+  margin-bottom: auto;
+  flex-grow: 1;
 }
 
 .portfolio-list__title {
@@ -1112,4 +1135,26 @@ body {
   line-height: 1.9;
   letter-spacing: 0.03em;
   margin-top: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .portfolio-filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .portfolio-filters__content:not(:last-child) {
+    margin-right: 8px;
+  }
+  .portfolio-list__item {
+    flex-basis: calc((100% - 60px) / 2);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .portfolio-filters {
+    margin-bottom: 50px;
+  }
+  .portfolio-list__item {
+    flex-basis: calc((100% - 60px) / 3);
+  }
 }/*# sourceMappingURL=main.css.map */
